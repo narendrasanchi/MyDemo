@@ -25,6 +25,7 @@ namespace AWSDemo.DynamoDB
 
         public async Task<Response<Book?>> GetBookAsync(string id)
         {
+            //code to get data from dynamo db 
             return await _repository.Get(id, GetDynamoDBTableName("books", ""));
         }
 
