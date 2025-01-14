@@ -21,6 +21,7 @@ namespace AWSDemo.Common
         }
         public async Task<Response<T?>> Get(string id, DynamoDBOperationConfig dynamoDbOperationConfig = null)
         {
+            //dynamo db demo to get the data 
             T dbRecord;
             if (dynamoDbOperationConfig != null)
             {
