@@ -25,6 +25,7 @@ namespace AWSDemo.Common
             T dbRecord;
             if (dynamoDbOperationConfig != null)
             {
+                //This is for custom config.
                 dbRecord = await dynamoDBContext.LoadAsync<T>(id, dynamoDbOperationConfig);
             }
             else
