@@ -1,0 +1,54 @@
+<mat-card class="selection-card">
+  <mat-card-header>
+    <mat-card-title>Selection Types Demo</mat-card-title>
+    <mat-card-subtitle>Clean Architecture .NET 8 Web API with Angular 16 Client</mat-card-subtitle>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <div class="schema-info" *ngIf="schema">
+      <h3>JSON Schema from API:</h3>
+      <pre>{{ schema | json }}</pre>
+    </div>
+
+    <form [formGroup]="checkboxForm" (ngSubmit)="onSubmit()" class="checkbox-form">
+      <h3>Select Options:</h3>
+      
+      <div class="checkbox-container">
+        <mat-checkbox formControlName="All" class="checkbox-item">
+          All
+        </mat-checkbox>
+      </div>
+      
+      <div class="checkbox-container">
+        <mat-checkbox formControlName="Test1" class="checkbox-item">
+          Test1
+        </mat-checkbox>
+      </div>
+      
+      <div class="checkbox-container">
+        <mat-checkbox formControlName="Test2" class="checkbox-item">
+          Test2
+        </mat-checkbox>
+      </div>
+
+      <div class="selected-values">
+        <h4>Selected Values:</h4>
+        <p>{{ getSelectedValues() | json }}</p>
+      </div>
+
+      <div class="submit-section">
+        <button mat-raised-button color="primary" type="submit" [disabled]="loading">
+          {{ loading ? 'Submitting...' : 'Submit Selection' }}
+        </button>
+      </div>
+    </form>
+
+    <div class="result" *ngIf="submitResult">
+      <h3>API Response:</h3>
+      <div [class]="submitResult.isSuccess ? 'success' : 'error'">
+        <p><strong>Status:</strong> {{ submitResult.isSuccess ? 'Success' : 'Error' }}</p>
+        <p><strong>Message:</strong> {{ submitResult.message }}</p>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
