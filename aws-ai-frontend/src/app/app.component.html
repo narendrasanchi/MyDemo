@@ -1,0 +1,53 @@
+<div class="app-container">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/dashboard">AWS AI Demo</a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/polly" routerLinkActive="active">Text-to-Speech</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/comprehend" routerLinkActive="active">Sentiment Analysis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/rekognition" routerLinkActive="active">Image Analysis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/translate" routerLinkActive="active">Translation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/bedrock" routerLinkActive="active">Text Generation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/chatbot" routerLinkActive="active">Chatbot</a>
+          </li>
+        </ul>
+        
+        <ul class="navbar-nav">
+          <li class="nav-item" *ngIf="!isLoggedIn">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+          <li class="nav-item" *ngIf="!isLoggedIn">
+            <a class="nav-link" routerLink="/register">Register</a>
+          </li>
+          <li class="nav-item" *ngIf="isLoggedIn">
+            <a class="nav-link" href="#" (click)="logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container-fluid mt-4">
+    <router-outlet></router-outlet>
+  </main>
+</div>
