@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +21,11 @@ export class ApiService {
   }
 
   getVoices(languageCode?: string): Observable<any> {
-    const params = languageCode ? { languageCode } : {};
-    return this.http.get(`${this.baseUrl}/Polly/voices`, { params });
+    let params: any = {};
+    if (languageCode) {
+      params.languageCode = languageCode;
+    }
+    return this.http.get(`${this.baseUrl}/Polly/voices`, languageCode ? { params } : {});
   }
 
   getLanguages(): Observable<any> {
