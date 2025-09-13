@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: aws-ai-backend
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - AWS__Region=us-east-1
+      - AWS__Profile=default
+      - Cognito__UserPoolId=your-user-pool-id
+      - Cognito__ClientId=your-client-id
+      - Cognito__Region=us-east-1
+    ports:
+      - "5141:8080"
+    volumes:
+      - ~/.aws:/root/.aws:ro
+    networks:
+      - aws-ai-network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: aws-ai-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    networks:
+      - aws-ai-network
+
+networks:
+  aws-ai-network:
+    driver: bridge
+
+volumes:
+  aws-credentials:
+    external: false
