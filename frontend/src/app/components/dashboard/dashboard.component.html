@@ -1,0 +1,26 @@
+<div class="dashboard">
+  <h1>AWS AI Services Demo Dashboard</h1>
+  <p class="subtitle">Explore the power of AWS AI services with interactive demos</p>
+  
+  <div class="services-grid">
+    <mat-card *ngFor="let service of services" class="service-card" [style.border-left-color]="service.color">
+      <mat-card-header>
+        <div mat-card-avatar class="service-avatar" [style.background-color]="service.color">
+          <mat-icon>{{service.icon}}</mat-icon>
+        </div>
+        <mat-card-title>{{service.title}}</mat-card-title>
+        <mat-card-subtitle>{{service.description}}</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-actions>
+        <button mat-raised-button 
+                [routerLink]="service.route" 
+                [style.background-color]="service.color"
+                color="primary">
+          <mat-icon>play_arrow</mat-icon>
+          Try It Now
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

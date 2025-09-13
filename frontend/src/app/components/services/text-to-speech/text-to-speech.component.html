@@ -1,0 +1,116 @@
+<div class="text-to-speech-container">
+  <mat-card class="service-card">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>record_voice_over</mat-icon>
+        Text to Speech (Amazon Polly)
+      </mat-card-title>
+      <mat-card-subtitle>
+        Convert text to natural-sounding speech using Amazon Polly
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <!-- Text Input -->
+      <div class="input-section">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Enter text to convert to speech</mat-label>
+          <textarea 
+            matInput 
+            [(ngModel)]="text"
+            (ngModelChange)="onTextChange()"
+            placeholder="Type your text here..."
+            rows="4"
+            maxlength="3000">
+          </textarea>
+          <mat-hint>{{text.length || 0}} / 3000 characters</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <!-- Voice Selection -->
+      <div class="settings-section">
+        <mat-form-field appearance="outline" class="voice-select">
+          <mat-label>Select Voice</mat-label>
+          <mat-select [(ngModel)]="selectedVoice" (selectionChange)="onVoiceChange()">
+            <mat-option *ngFor="let voice of voices" [value]="voice.Id">
+              {{voice.Name}} ({{voice.Gender}})
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div class="neural-toggle">
+          <mat-checkbox 
+            [(ngModel)]="isNeural"
+            (change)="onVoiceChange()">
+            Use Neural Voice (Higher Quality)
+          </mat-checkbox>
+        </div>
+      </div>
+
+      <!-- Generate Button -->
+      <div class="action-section">
+        <button 
+          mat-raised-button 
+          color="primary" 
+          (click)="generateSpeech()"
+          [disabled]="isLoading || !text.trim()"
+          class="generate-btn">
+          <mat-spinner *ngIf="isLoading" diameter="20"></mat-spinner>
+          <mat-icon *ngIf="!isLoading">play_arrow</mat-icon>
+          {{isLoading ? 'Generating...' : 'Generate Speech'}}
+        </button>
+      </div>
+
+      <!-- Audio Player -->
+      <div class="audio-section" *ngIf="audioUrl">
+        <mat-card class="audio-card">
+          <mat-card-content>
+            <div class="audio-controls">
+              <audio 
+                controls 
+                [src]="audioUrl"
+                class="audio-player">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+            <div class="audio-actions">
+              <button 
+                mat-button 
+                color="primary" 
+                (click)="downloadAudio()">
+                <mat-icon>download</mat-icon>
+                Download MP3
+              </button>
+              <button 
+                mat-button 
+                color="warn" 
+                (click)="clearAudio()">
+                <mat-icon>clear</mat-icon>
+                Clear
+              </button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <!-- Information -->
+      <div class="info-section">
+        <mat-card class="info-card">
+          <mat-card-content>
+            <h3>About Amazon Polly</h3>
+            <p>
+              Amazon Polly is a cloud service that converts text into lifelike speech. 
+              It offers dozens of voices across a variety of languages and includes both standard and neural text-to-speech.
+            </p>
+            <ul>
+              <li><strong>Multiple Voices:</strong> Choose from male and female voices</li>
+              <li><strong>Neural TTS:</strong> More natural and human-like speech</li>
+              <li><strong>SSML Support:</strong> Speech Synthesis Markup Language for fine control</li>
+              <li><strong>Multiple Formats:</strong> MP3, OGG, and PCM audio formats</li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

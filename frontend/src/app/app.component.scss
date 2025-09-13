@@ -1,0 +1,40 @@
+.sidenav-container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 250px;
+  background: #f5f5f5;
+}
+
+.sidenav-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  font-weight: 600;
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+}
+
+.main-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+}
+
+.main-content {
+  padding: 20px;
+  min-height: calc(100vh - 64px);
+  background: #fafafa;
+}
+
+.active {
+  background: rgba(0, 0, 0, 0.08);
+}
