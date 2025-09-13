@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # .NET 8 Web API Backend
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: aws-ai-api
+    ports:
+      - "7109:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - AWS__Region=us-east-1
+      # Add your AWS credentials or use IAM roles
+      # - AWS_ACCESS_KEY_ID=your_access_key
+      # - AWS_SECRET_ACCESS_KEY=your_secret_key
+      # AWS configuration
+      - AWS__Cognito__UserPoolId=YOUR_USER_POOL_ID
+      - AWS__Cognito__ClientId=YOUR_CLIENT_ID
+      - AWS__S3__BucketName=YOUR_S3_BUCKET_NAME
+      - AWS__Lex__BotId=YOUR_BOT_ID
+      - AWS__Lex__BotAliasId=YOUR_BOT_ALIAS_ID
+    volumes:
+      - ~/.aws:/root/.aws:ro  # Mount AWS credentials (optional, use IAM roles in production)
+    networks:
+      - aws-ai-network
+
+  # Angular 19 Frontend
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: aws-ai-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - api
+    networks:
+      - aws-ai-network
+
+networks:
+  aws-ai-network:
+    driver: bridge
+
+volumes:
+  aws-credentials:
+    driver: local

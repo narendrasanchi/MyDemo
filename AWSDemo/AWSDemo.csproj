@@ -9,6 +9,14 @@
   <ItemGroup>
     <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.405.4" />
     <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.7.301" />
+    <PackageReference Include="AWSSDK.Polly" Version="3.7.400" />
+    <PackageReference Include="AWSSDK.TranscribeService" Version="3.7.400" />
+    <PackageReference Include="AWSSDK.Translate" Version="3.7.400" />
+    <PackageReference Include="AWSSDK.Comprehend" Version="3.7.400" />
+    <PackageReference Include="AWSSDK.Rekognition" Version="3.7.400" />
+    <PackageReference Include="AWSSDK.LexRuntimeV2" Version="3.7.400" />
+    <PackageReference Include="AWSSDK.BedrockRuntime" Version="3.7.400" />
+    <PackageReference Include="AWSSDK.CognitoIdentityProvider" Version="3.7.400" />
   </ItemGroup>
 
   <ItemGroup>
