@@ -1,0 +1,36 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidebar -->
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" mode="side" opened="true">
+    <mat-toolbar color="primary" class="sidenav-header">
+      <mat-icon>cloud</mat-icon>
+      <span class="spacer"></span>
+      <span>AWS AI Services</span>
+    </mat-toolbar>
+    
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let item of menuItems" [routerLink]="item.path" routerLinkActive="active">
+        <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+        <span matListItemTitle>{{item.label}}</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main content -->
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="main-toolbar">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>{{title}}</span>
+      <span class="spacer"></span>
+      <button mat-raised-button color="accent" routerLink="/login">
+        <mat-icon>login</mat-icon>
+        Login
+      </button>
+    </mat-toolbar>
+
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
