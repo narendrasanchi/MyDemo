@@ -1,0 +1,94 @@
+.user-list-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+mat-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 40px;
+}
+
+.loading-container p {
+  margin-top: 20px;
+  color: #666;
+}
+
+.no-users {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.link {
+  color: #3f51b5;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.status-confirmed {
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.status-unconfirmed {
+  color: #ff9800;
+  font-weight: 500;
+}
+
+.status-archived {
+  color: #666;
+  font-weight: 500;
+}
+
+.status-compromised {
+  color: #f44336;
+  font-weight: 500;
+}
+
+.status-unknown {
+  color: #666;
+  font-weight: 500;
+}
+
+.status-reset_required {
+  color: #ff5722;
+  font-weight: 500;
+}
+
+.status-force_change_password {
+  color: #9c27b0;
+  font-weight: 500;
+}
+
+mat-icon-button {
+  margin-right: 8px;
+}
+
+::ng-deep .success-snackbar {
+  background-color: #4caf50 !important;
+  color: white !important;
+}
+
+::ng-deep .error-snackbar {
+  background-color: #f44336 !important;
+  color: white !important;
+}

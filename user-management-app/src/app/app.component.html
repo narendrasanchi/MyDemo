@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <mat-icon>people</mat-icon>
+  <span class="title">{{title}}</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/users">
+    <mat-icon>list</mat-icon>
+    Users
+  </button>
+  <button mat-button routerLink="/users/register">
+    <mat-icon>person_add</mat-icon>
+    Register User
+  </button>
+</mat-toolbar>
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>

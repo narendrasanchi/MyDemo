@@ -1,0 +1,54 @@
+<div class="edit-container">
+  <mat-card class="edit-card">
+    <mat-card-header>
+      <mat-card-title>Edit User: {{username}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div *ngIf="isLoading && !originalUser" class="loading-container">
+        <p>Loading user data...</p>
+      </div>
+
+      <form *ngIf="originalUser" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="user-info">
+          <p><strong>Username:</strong> {{originalUser.username}}</p>
+          <p><strong>Status:</strong> <span [class]="'status-' + originalUser.userStatus.toLowerCase()">{{originalUser.userStatus}}</span></p>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" required>
+          <mat-error *ngIf="editForm.get('email')?.invalid && editForm.get('email')?.touched">
+            {{getErrorMessage('email')}}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Phone Number</mat-label>
+          <input matInput type="tel" formControlName="phoneNumber" placeholder="+1234567890">
+          <mat-error *ngIf="editForm.get('phoneNumber')?.invalid && editForm.get('phoneNumber')?.touched">
+            {{getErrorMessage('phoneNumber')}}
+          </mat-error>
+        </mat-form-field>
+
+        <div class="name-row">
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="givenName">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="familyName">
+          </mat-form-field>
+        </div>
+
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="isLoading">
+            {{isLoading ? 'Updating...' : 'Update User'}}
+          </button>
+          <button mat-button type="button" (click)="cancel()">Cancel</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
