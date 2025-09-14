@@ -38,10 +38,7 @@ namespace WebAPI.Services
                 }
 
                 if (!string.IsNullOrEmpty(request.GivenName))
-                    attributes.Add(new AttributeType { Name = "given_name", Value = request.GivenName });
-
-                if (!string.IsNullOrEmpty(request.FamilyName))
-                    attributes.Add(new AttributeType { Name = "family_name", Value = request.FamilyName });
+                    attributes.Add(new AttributeType { Name = "name", Value = request.GivenName });
 
                 var createUserRequest = new AdminCreateUserRequest
                 {

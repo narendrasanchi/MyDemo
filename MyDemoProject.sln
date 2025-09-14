@@ -7,9 +7,34 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "Source\API\WebAPI
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPatternsDemo", "Source\API\DesignPatternsDemo\DesignPatternsDemo.csproj", "{97C7FFBD-D4A7-47CA-B9DF-9369FA18955B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWSDemo", "AWSDemo\AWSDemo.csproj", "{3EC4B45F-B9A2-40E2-857C-A9D5BAA842B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSDemo", "AWSDemo\AWSDemo.csproj", "{3EC4B45F-B9A2-40E2-857C-A9D5BAA842B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{12C71E6E-AD33-4341-B0ED-E8098C21A20C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{12C71E6E-AD33-4341-B0ED-E8098C21A20C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{AC9A6940-9FB5-464D-A2B5-02339BB75CB7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserManagement", "UserManagement", "{341DF15E-E00A-4EC7-949B-900C29EF7F7A}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "user-management-app", "user-management-app\", "{B6731B26-2251-48DB-8C75-50670EB3A0D2}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_65120"
+		Debug.AspNetCompiler.PhysicalPath = "user-management-app\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_65120\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_65120"
+		Release.AspNetCompiler.PhysicalPath = "user-management-app\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_65120\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "65120"
+		SlnRelativePath = "user-management-app\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +58,17 @@ Global
 		{12C71E6E-AD33-4341-B0ED-E8098C21A20C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12C71E6E-AD33-4341-B0ED-E8098C21A20C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12C71E6E-AD33-4341-B0ED-E8098C21A20C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6731B26-2251-48DB-8C75-50670EB3A0D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6731B26-2251-48DB-8C75-50670EB3A0D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6731B26-2251-48DB-8C75-50670EB3A0D2}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6731B26-2251-48DB-8C75-50670EB3A0D2}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{341DF15E-E00A-4EC7-949B-900C29EF7F7A} = {AC9A6940-9FB5-464D-A2B5-02339BB75CB7}
+		{B6731B26-2251-48DB-8C75-50670EB3A0D2} = {341DF15E-E00A-4EC7-949B-900C29EF7F7A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB6F46D1-91BB-40FB-A438-8EF723C3E65B}
