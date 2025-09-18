@@ -1,0 +1,42 @@
+<div class="chat-widget-container">
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error-message" role="alert">
+    <i class="error-icon">⚠️</i>
+    {{ errorMessage }}
+  </div>
+
+  <!-- Chat Toggle Button -->
+  <button 
+    class="chat-toggle-btn"
+    [class.active]="isChatOpen"
+    [disabled]="isLoading"
+    (click)="toggleChat()"
+    title="Toggle customer support chat"
+    aria-label="Toggle customer support chat">
+    
+    <span *ngIf="isLoading" class="loading-spinner" aria-hidden="true">⏳</span>
+    <span *ngIf="!isLoading && !isChatOpen" class="chat-icon" aria-hidden="true">💬</span>
+    <span *ngIf="!isLoading && isChatOpen" class="close-icon" aria-hidden="true">✕</span>
+    
+    <span class="button-text">
+      <span *ngIf="isLoading">Loading...</span>
+      <span *ngIf="!isLoading && !isChatOpen">Start Chat</span>
+      <span *ngIf="!isLoading && isChatOpen">Close Chat</span>
+    </span>
+  </button>
+
+  <!-- Amazon Connect Chat Container -->
+  <div 
+    id="amazon-connect-chat-container"
+    class="chat-container"
+    [style.display]="isChatOpen ? 'block' : 'none'"
+    aria-live="polite"
+    aria-label="Customer support chat interface">
+  </div>
+
+  <!-- Instructions -->
+  <div class="instructions" *ngIf="!isChatOpen && !isLoading && !errorMessage">
+    <p>Click "Start Chat" to connect with customer support.</p>
+    <small>Make sure your Amazon Connect instance is properly configured.</small>
+  </div>
+</div>

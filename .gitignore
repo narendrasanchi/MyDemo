@@ -266,3 +266,22 @@ FakesAssemblies/
 
 // Contextkeeper files
 *.ck
+
+# Angular specific
+connect-chat-demo/dist/
+connect-chat-demo/tmp/
+connect-chat-demo/out-tsc/
+connect-chat-demo/.angular/
+
+# Node.js and npm
+backend-proxy/node_modules/
+backend-proxy/.env
+backend-proxy/npm-debug.log*
+backend-proxy/yarn-debug.log*
+backend-proxy/yarn-error.log*
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo

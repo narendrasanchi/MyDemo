@@ -1,0 +1,22 @@
+{
+  "name": "amazon-connect-chat-proxy",
+  "version": "1.0.0",
+  "description": "Optional backend proxy for Amazon Connect chat demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": ["amazon-connect", "chat", "proxy", "express"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "aws-sdk": "^2.1490.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
